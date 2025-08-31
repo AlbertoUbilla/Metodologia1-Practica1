@@ -11,12 +11,14 @@ namespace PracticaN1
         static void Main(string[] args)
         {
             Pila pila = new Pila();
-            Helper.Llenar(pila);
+            //Helper.Llenar(pila); // Error de Casteo
+            Helper.LlenarAlumnos(pila);
             Console.WriteLine("--- Informando Pila ---");
             Helper.Informar(pila);
             
             Cola cola = new Cola();
-            Helper.Llenar(cola);
+            //Helper.Llenar(cola); //Error de Casteo
+            Helper.LlenarAlumnos(cola);
             Console.WriteLine("\n--- Informando Cola ---");
             Helper.Informar(cola);
 

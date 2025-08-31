@@ -22,23 +22,44 @@ namespace PracticaN1
             Console.WriteLine("Cantidad de elementos: " + c.Cuantos());
             Console.WriteLine("Elemento Maximo: " + c.Maximo());
             Console.WriteLine("Elemento Minimo: " + c.Minimo());
-
-            Console.Write("Ingrese un numero para buscar en la coleccion: ");
-            if (int.TryParse(Console.ReadLine(), out int numeroIngresado))
+            try
             {
-                Numero numeroBuscado = new Numero(numeroIngresado);
-                if (c.Contiene(numeroBuscado))
+                //Error de Casteo
+
+                /*Console.Write("Ingrese un numero para buscar en la coleccion: ");
+                if (int.TryParse(Console.ReadLine(), out int numeroIngresado))
                 {
-                    Console.WriteLine("El elemento leido esta en la coleccion.");
+                    Numero numeroBuscado = new Numero(numeroIngresado);
+                    if (c.Contiene(numeroBuscado))
+                    {
+                        Console.WriteLine("El elemento leido esta en la coleccion.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("El elemento leido no esta en la coleccion.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("El elemento leido no esta en la coleccion.");
-                }
+                    Console.WriteLine("Entrada no valida.");
+                }*/
             }
-            else
+            catch (Exception)
             {
-                Console.WriteLine("Entrada no valida.");
+                throw;
+            }
+        }
+        public static void LlenarAlumnos(Coleccionable c)
+        {
+            Random random = new Random();
+            string[] nombres = { "Ana", "Luis", "Carlos", "Marta", "Pedro", "Sofia", "Juan", "Maria", "Ramona", "Jose", "Claudio" };
+            for (int i = 0; i < 20; i++)
+            {
+                string nombre = nombres[random.Next(nombres.Length)];
+                int dni = random.Next(10000000, 99999999);
+                int legajo = random.Next(1000, 9999);
+                double promedio = random.NextDouble() * 10;
+                c.Agregar(new Alumno(legajo, promedio, nombre, dni));
             }
         }
     }
